@@ -29,7 +29,7 @@ The image below shows the following parts of the UI:
 
 1. **MSX Emulator:** runs the vintage game
 2. **Rounds List:** during the game exploration, this list is gradually updated with information of each round
-3. **Play** and**Stop** wil start and stop the exploration loop
+3. **Play** and **Stop** wil start and stop the exploration loop
 4. **Settings Panel:** configure and adjust the system settings. See [details on each settings parameters here](#configuration)
 
 ## AI Adventure Solver in action
@@ -45,7 +45,7 @@ You can see the **AI Adventure Solver** in action here:
 
 * [https://www.peplau.com.br/AI-Adventure-Solver](https://www.peplau.com.br/AI-Adventure-Solver)
 
-You can also run it in your own server. For that, upload the files from the folder **dist** into your server and browse it... Simple like that!
+You can also run it in your own server. For that, upload the files from the folder [dist](/dist) into your server and browse it... Simple like that!
 
 ## Using the AI Adventure Solver
 
@@ -62,8 +62,8 @@ To run the software, execute the following steps:
 After the first load, the settings are pre-populated with some crucial values. To setup it for the first time, fill up the following parameters:
 
 1. **OpenAI API Key:** Fill up with your OpenAI API Key. If you don't have one yet, make sure to create your own[following this guide](CreatingAPIKey.md).
-2. **Quick Load:** Select one of the available games from this dropdown. Alternatinely, you can load your own disk (.dsk or .zip) by filling the parameter**DISKA_URL** with a public URL to your file, or load your own cartridge (.rom or .zip) by filling the parameter**CARTRIDGE1_URL** with a recpective public URL as well.
-3. Click the**SAVE** button (at the bottom of the Settings window) and refresh the page to see the game start.
+2. **Quick Load:** Select one of the available games from this dropdown. Alternatinely, you can load your own disk (.dsk or .zip) by filling the parameter **DISKA_URL** with a public URL to your file, or load your own cartridge (.rom or .zip) by filling the parameter **CARTRIDGE1_URL** with a recpective public URL as well.
+3. Click the **SAVE** button (at the bottom of the Settings window) and refresh the page to see the game start.
 
 ## All Settings Parameters
 
