@@ -6,10 +6,13 @@
 
 ## What are Text Adventures?
 
-Text Adventure Games are early computer games, popular in the late 1970s and 1980s, that rely entirely on text-based input and output. Players interact with the game by typing commands like "go north" or "pick up key," while the game responds with descriptive text narrating the environment, events, and outcomes of their actions. These games require imagination and problem-solving skills, as they lack graphics and rely on written storytelling. Despite their simplicity, they offer deep and engaging experiences through intricate puzzles and immersive narratives.
+Text Adventure Games are early computer games, popular in the late 1970s and 1980s, that rely entirely on text-based input and output. Players interact with the game by typing commands like "go north" or "pick up key", while the game responds with descriptive text narrating the environment, events, and outcomes of their actions. 
 
 ![MSX Games World - Zork I - The Great Underground Adventure](assets/Zork%20I%20-%20The%20Great%20Underground%20Empire%20(Infocom,%201982)%20(3).png "MSX Games World - Zork I - The Great Underground Adventure")
+
 *MSX Games World - Zork I - The Great Underground Adventure*
+
+These games require imagination and problem-solving skills, as they lack graphics and rely on written storytelling. Despite their simplicity, they offer deep and engaging experiences through intricate puzzles and immersive narratives.
 
 ## How does it work?
 
