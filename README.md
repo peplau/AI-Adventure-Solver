@@ -57,10 +57,8 @@ After the first load, the settings are pre-populated with some crucial values. T
 
 Below is a list of all available parameters and their respective descriptions.
 
-
-**IMPORTANT:** Please note that some settings requires the page to be refreshed when they are modified.
-
-**IMPORTANT 2:** Make sure that you don't modify parameters while the loop is active.
+* **IMPORTANT:** Some settings requires the page to be refreshed when they are modified.
+* **IMPORTANT:** Make sure that you don't modify parameters while the loop is active.
 
 | Parameter            | Description                                                                                                                                                                | Default Value                       | Page refresh required |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --------------------- |
