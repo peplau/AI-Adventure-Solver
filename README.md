@@ -53,7 +53,7 @@ After the first load, the settings are pre-populated with some crucial values. T
 
 1. **OpenAI API Key:** Fill up with your OpenAI API Key. If you don't have one yet, make sure to create your own [following this guide](CreatingAPIKey.md).
 2. **Quick Load:** Select one of the available games from this dropdown. Alternatinely, you can load your own disk (.dsk or .zip) by filling the parameter **DISKA_URL** with a public URL to your file, or load your own cartridge (.rom or .zip) by filling the parameter **CARTRIDGE1_URL** with a recpective public URL as well.
-3. Click the SAVE button (at the bottom of the Settings window) and refresh the page to see the game start.
+3. Click the **SAVE** button (at the bottom of the Settings window) and refresh the page to see the game start.
 
 Below is a list of all available parameters and their respective descriptions. Please note that some settings requires the page to be refreshed when they are modified.
 
