@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Adventure Game Solver</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src='https://unpkg.com/tesseract.js@v2.0.0-beta.1/dist/tesseract.min.js'></script>    
+    <style>
+        .resizable {
+            resize: vertical;
+            overflow: auto;
+            min-height: 100px;
+        }
+        #panel3 {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container-fluid py-3">
+        <div class="row">
+            <div class="col-md-6" id="mainContent">
+                <div id="panel1" class="border p-3 bg-white resizable">
+                    <h5>WebMSX Emulator</h5>
+                    <div id="wmsx" style="text-align: center; margin: 20px auto 0; background:black;">
+                        <div id="wmsx-screen" style="box-shadow: 2px 2px 10px rgba(0, 0, 0, .7);"></div>
+                    </div>
+                    <div style="padding-top: 8px;">
+                        <button class="btn btn-success" onclick="startSolver()" id="startBtn">&#9655;</button>
+                        <button class="btn btn-danger" onclick="stopSolver()"  id="stopBtn" disabled="disabled">&#9723;</button>
+                        <!-- <button class="btn btn-warning" onclick="testType()">Test Type on MSX</button>
+                        <button class="btn btn-warning" onclick="testOcr()">Test Image OCR</button> -->
+                    </div>
+                </div>
+                <div id="panel2" class="border p-3 bg-white resizable mt-3">
+                    <h5>Settings</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        <div class="d-flex col-md-12">
+                            <label for="openaiApiKey" class="form-label">OpenAI&nbsp;API&nbsp;Key&nbsp;&nbsp;</label>
+                            <input type="text" id="openaiApiKey" class="form-control">
+                        </div>
+                        <div class="d-flex col-md-12">
+                            <label for="preload" class="form-label">Quick&nbsp;Load&nbsp;&nbsp;</label>
+                            <select id="preload" class="form-control">
+                                <option value=""></option>
+                                <option value="zork1.dsk">Zork I</option>
+                                <option value="zork2.dsk">Zork II</option>
+                            </select>
+                        </div>
+                        <div class="d-flex col-md-12">
+                            <label for="diskaUrl" class="form-label">DISKA_URL&nbsp;&nbsp;</label>
+                            <input type="text" id="diskaUrl" class="form-control">
+                        </div>
+                        <div class="d-flex col-md-12">
+                            <label for="cartridge1Url" class="form-label">CARTRIDGE1_URL&nbsp;&nbsp;</label>
+                            <input type="text" id="cartridge1Url" class="form-control">
+                        </div>
+                        <div class="d-flex" style="width:49%">
+                            <label for="machine" class="form-label">Machine&nbsp;&nbsp;</label>
+                            <input type="text" id="machine" class="form-control" value="MSX1">
+                        </div>
+                        <div class="d-flex col-md-6">
+                            <label for="keyPressDelay" class="form-label">Key&nbsp;Press&nbsp;Delay&nbsp;&nbsp;</label>
+                            <input type="number" id="keyPressDelay" class="form-control" value="300">
+                        </div>
+                        <div class="d-flex" style="width:49%">
+                            <label for="textTypeDelay" class="form-label">Text&nbsp;Type&nbsp;Delay&nbsp;&nbsp;</label>
+                            <input type="number" id="textTypeDelay" class="form-control" value="450">
+                        </div>
+                        <div class="d-flex col-md-6">
+                            <label for="multiKeyPressDelay" class="form-label">MultiKey&nbsp;Press&nbsp;Delay&nbsp;&nbsp;</label>
+                            <input type="number" id="multiKeyPressDelay" class="form-control" value="1000">
+                        </div>
+                        <div class="d-flex" style="width:49%">
+                            <label for="imageAnalysisMaxTokens" class="form-label">Max&nbsp;Tokens&nbsp;&nbsp;</label>
+                            <input type="number" id="imageAnalysisMaxTokens" class="form-control" value="500">
+                        </div>
+                        <div class="d-flex col-md-6">
+                            <label for="model" class="form-label">Model&nbsp;&nbsp;</label>
+                            <input type="text" id="model" class="form-control" value="gpt-4o">
+                        </div>
+                        <div class="d-flex" style="width:49%">
+                            <label for="maxRounds" class="form-label">Max&nbsp;Rounds&nbsp;&nbsp;</label>
+                            <input type="text" id="maxRounds" class="form-control" value="500">
+                        </div>
+                        <div class="d-flex col-md-6">
+                            <label for="roundDelay" class="form-label">Round&nbsp;Delay&nbsp;&nbsp;</label>
+                            <input type="number" id="roundDelay" class="form-control" value="15000">
+                        </div>
+                        <div class="d-flex col-md-12">
+                            <label for="screenAnalysisPrompt" class="form-label">Prompt&nbsp;&nbsp;</label><br/>
+                            <textarea id="screenAnalysisPrompt" class="form-control" rows="15"></textarea>
+                        </div>
+                        <div class="d-flex col-md-12">
+                            <label for="gameWalkthrough" class="form-label">Walkthrough&nbsp;&nbsp;</label><br/>
+                            <textarea id="gameWalkthrough" class="form-control" rows="15"></textarea>
+                        </div>
+                    </div>
+                    <button id="saveSettings" class="btn btn-primary mt-2" disabled onclick="saveSettings()">Save</button>
+                </div>
+            </div>
+            <div class="col-md-6" id="logColumn">
+                <div id="panel3" class="border p-3 bg-white resizable">
+                    <div id="logs" class="overflow-auto" style="height: 800px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/webmsx/wmsx.js"></script>
+    <script src="defaultPrompt.js"></script>
+    <script src="index.js"></script>
+    <script src="settings.js"></script>
+    <script src="keyboard.js"></script>
+</body>
+</html>
