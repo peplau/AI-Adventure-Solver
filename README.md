@@ -24,6 +24,11 @@ The image below shows the following parts of the UI:
 
 ![AI Adventure Solver Screen](assets/AI-Adventure-Solver-Screens.png "AI Adventure Solver Screen")
 
+1. **MSX Emulator:** runs the vintage game
+2. **Rounds List:** during the game exploration, this list is gradually updated with information of each round
+3. **Play** and **Stop** wil start and stop the exploration loop
+4. **Settings Panel:** configure and adjust the system settings. See [details on each settings parameters here](#configuration)
+
 ## AI Adventure Solver in action
 
 The video below shows the AI Adventure Solver in action while exploring the adventure "ZORK I"
@@ -77,5 +82,4 @@ To run the software, execute the following steps:
 3. Wait for the game to load
 4. Click at the Start button
 5. Have fun watching the system explore your Adventure
-
 
