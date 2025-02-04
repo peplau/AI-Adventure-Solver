@@ -30,7 +30,7 @@ The image below shows the following parts of the UI:
 1. **MSX Emulator:** runs the vintage game
 2. **Rounds List:** during the game exploration, this list is gradually updated with information of each round
 3. **Play** and**Stop** wil start and stop the exploration loop
-4. **Settings Panel:** configure and adjust the system settings. See[details on each settings parameters here](#configuration)
+4. **Settings Panel:** configure and adjust the system settings. See [details on each settings parameters here](#configuration)
 
 ## AI Adventure Solver in action
 
@@ -47,6 +47,16 @@ You can see the **AI Adventure Solver** in action here:
 
 You can also run it in your own server. For that, upload the files from the folder **dist** into your server and browse it... Simple like that!
 
+## Using the AI Adventure Solver
+
+To run the software, execute the following steps:
+
+1. Access the system URL (Either [https://www.peplau.com.br/AI-Adventure-Solver](https://www.peplau.com.br/AI-Adventure-Solver) or your website).
+2. Make sure the **Settings** are correct [as described here](https://www.peplau.com.br/AI-Adventure-Solver), as described in the previous section.
+3. Wait for the game to load
+4. Click at the Start button
+5. Have fun watching the system explore your Adventure
+
 ## Configuration
 
 After the first load, the settings are pre-populated with some crucial values. To setup it for the first time, fill up the following parameters:
@@ -54,6 +64,8 @@ After the first load, the settings are pre-populated with some crucial values. T
 1. **OpenAI API Key:** Fill up with your OpenAI API Key. If you don't have one yet, make sure to create your own[following this guide](CreatingAPIKey.md).
 2. **Quick Load:** Select one of the available games from this dropdown. Alternatinely, you can load your own disk (.dsk or .zip) by filling the parameter**DISKA_URL** with a public URL to your file, or load your own cartridge (.rom or .zip) by filling the parameter**CARTRIDGE1_URL** with a recpective public URL as well.
 3. Click the**SAVE** button (at the bottom of the Settings window) and refresh the page to see the game start.
+
+## All Settings Parameters
 
 Below is a list of all available parameters and their respective descriptions.
 
@@ -77,12 +89,3 @@ Below is a list of all available parameters and their respective descriptions.
 | Prompt               | Screen analysis prompt to be used with the OpenAI API to decide the next action.                                                                                           | [Default value](dist/defaultPrompt.js) | NO                    |
 | Walkthrough          | (Optional) Paste the game walkthrough here to help the AI solve the game                                                                                                   |                                     | NO                    |
 
-## Using the AI Adventure Solver
-
-To run the software, execute the following steps:
-
-1. Access the system URL (Either[https://www.peplau.com.br/AI-Adventure-Solver](https://www.peplau.com.br/AI-Adventure-Solver) or your website).
-2. Make sure the**Settings** are correct, as described in the previous section.
-3. Wait for the game to load
-4. Click at the Start button
-5. Have fun watching the system explore your Adventure
