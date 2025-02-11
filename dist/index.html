@@ -36,11 +36,15 @@
                     </div>
                 </div>
                 <div id="panel2" class="border p-3 bg-white resizable mt-3">
-                    <h5>Settings</h5>
+                    <h5>
+						Settings
+						<a href="https://github.com/peplau/AI-Adventure-Solver" target="_blank" data-bs-toggle="tooltip" title="Learn more about this tool"><img src="questionmark.png" width="32" height="32" alt="Learn more about this tool"></a>
+					</h5>
                     <div class="d-flex flex-wrap gap-2">
                         <div class="d-flex col-md-12">
                             <label for="openaiApiKey" class="form-label">OpenAI&nbsp;API&nbsp;Key&nbsp;&nbsp;</label>
-                            <input type="text" id="openaiApiKey" class="form-control">
+                            <input type="text" id="openaiApiKey" class="form-control">				
+							<a href="https://github.com/peplau/AI-Adventure-Solver/blob/main/CreatingAPIKey.md" target="_blank" data-bs-toggle="tooltip" title="Don't have an OpenAI API Key? Click here."><img src="questionmark.png" width="32" height="32" alt="Don't have an OpenAI API Key? Click here."></a>
                         </div>
                         <div class="d-flex col-md-12">
                             <label for="preload" class="form-label">Quick&nbsp;Load&nbsp;&nbsp;</label>
@@ -109,8 +113,7 @@
             </div>
         </div>
     </div>
-    <script src="webmsx/wmsx.js"></script>
-    <script src="defaultPrompt.js"></script>
+    <script src="/webmsx/wmsx.js"></script>
     <script src="index.js"></script>
     <script src="settings.js"></script>
     <script src="keyboard.js"></script>

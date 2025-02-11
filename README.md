@@ -1,6 +1,8 @@
 # AI Adventure Solver
 
-**AI Adventure Solver** is an **AI-powered** robot capable to **explore** and **potentially win** vintage **Text Adventure Games** for MSX (8-bits computer)
+**AI Adventure Solver** is an **AI-powered** robot capable to **explore** and **potentially win** vintage **Text Adventure Games** for MSX (8-bits computer).
+
+Are you curious like me? [Learn the story of how this tool was created](https://gohorse.tech/they-said-ai-can-run-a-business-but-it-failed-to-beat-this-old-8-bit-game/)
 
 <img src="assets/AI-Adventure-Solver-Banner.webp" alt="AI Adventure Solver Banner" width="544">
 
@@ -74,16 +76,16 @@ Below is a list of all available parameters and their respective descriptions.
 
 | Parameter            | Description                                                                                                                                                                | Default Value                       | Page refresh required |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --------------------- |
-| OpenAI API Key       | OpenAI API Key. If you don't have one yet, make sure to create your own[following this guide](CreatingAPIKey.md)                                                              |                                     | NO                    |
+| OpenAI API Key       | OpenAI API Key. If you don't have one yet, make sure to create your own [following this guide](CreatingAPIKey.md)                                                              |                                     | NO                    |
 | Quick Load           | Dropdown with the games available natively                                                                                                                                 |                                     | YES                   |
 | DISKA_URL            | URL pointing to a disk image (.dsk or .zip)                                                                                                                                |                                     | YES                   |
 | CARTRIDGE1_URL       | URL pointing to a cartridge image (.rom or .zip)                                                                                                                           |                                     | YES                   |
-| Machine              | MSX Machine to use. Eg: MSX1, MSX2, etc.[See more details here](https://github.com/ppeccin/WebMSX?tab=readme-ov-file#choosing-a-machine)                                      | MSX1                                | YES                   |
+| Machine              | MSX Machine to use. Eg: MSX1, MSX2, etc. [See more details here](https://github.com/ppeccin/WebMSX?tab=readme-ov-file#choosing-a-machine)                                      | MSX1                                | YES                   |
 | Key Press Delay      | Time to keep a key pressed when typing, in milliseconds                                                                                                                    | 300                                 | NO                    |
 | Text Type Delay      | Time to wait between the moment the key is released and the next key is pressed, in milliseconds                                                                           | 450                                 | NO                    |
 | MultiKey Press Delay | Time to hold multiple keys pressed (Eg: CTRL+A), in milliseconds                                                                                                           | 1000                                | NO                    |
 | Max Tokens           | Maximum number of tokens to be returned by the AI                                                                                                                          | 500                                 | NO                    |
-| Model                | ChatGPT model to be used. Eg: gpt-4o, gpt-4o, o1-preview, etc.[See more details here](https://platform.openai.com/docs/models)                                                | gpt-4o                              | NO                    |
+| Model                | ChatGPT model to be used. Eg: gpt-4o, gpt-4o, o1-preview, etc. [See more details here](https://platform.openai.com/docs/models)                                                | gpt-4o                              | NO                    |
 | Max Rounds           | Maximum number of rounds to play. If this number is exceeded, the loop will automatically stop                                                                             | 500                                 | NO                    |
 | Round Delay          | Delay between rounds, in milliseconds. This number will be multiplied by the number of commands decided by the AI. Eg: one command = 15000ms, two commands = 30000ms, etc. | 15000                               | NO                    |
 | Prompt               | Screen analysis prompt to be used with the OpenAI API to decide the next action.                                                                                           | [Default value](dist/defaultPrompt.js) | NO                    |
