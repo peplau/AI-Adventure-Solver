@@ -38,7 +38,7 @@ The image below shows the following parts of the UI:
 
 The video below shows the AI Adventure Solver in action while exploring the adventure "ZORK I"
 
-![AI Adventure Solver in action](assets/AI-Adventure-Solver-Working.gif "AI Adventure Solver in action")
+![AI Adventure Solver in action](assets/AI-Adventure-Solver-Working2.gif "AI Adventure Solver in action")
 *AI Adventure Solver in action*
 
 ## Installation
