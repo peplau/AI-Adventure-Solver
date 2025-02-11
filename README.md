@@ -27,7 +27,7 @@ AI Adventure Solver loads the adventure game inside the MSX emulator **[1]**, ta
 
 The image below shows the following parts of the UI:
 
-![AI Adventure Solver Screen](assets/AI-Adventure-Solver-Screens.png "AI Adventure Solver Screen")
+![AI Adventure Solver Screen](assets/AI-Adventure-Solver-Screens2.png "AI Adventure Solver Screen")
 
 1. **MSX Emulator:** runs the vintage game
 2. **Rounds List:** during the game exploration, this list is gradually updated with information of each round
@@ -38,7 +38,7 @@ The image below shows the following parts of the UI:
 
 The video below shows the AI Adventure Solver in action while exploring the adventure "ZORK I"
 
-![AI Adventure Solver in action](assets/AI-Adventure-Solver-Working.gif "AI Adventure Solver in action")
+![AI Adventure Solver in action](assets/AI-Adventure-Solver-Working2.gif "AI Adventure Solver in action")
 *AI Adventure Solver in action*
 
 ## Installation
