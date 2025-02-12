@@ -103,11 +103,26 @@ async function ocrImage(base64Image, apiKey) {
         })
     });
     const data = await response.json();
+    if (data.error!=null) {
+        showMessage(`Error running the image OCR. Error code: ${data.error.code} - ${data.error.message}`);
+        stopSolver();
+        return null;
+    }
     var ocrText = data.choices[0].message.content;
     if(ocrText.includes('```\n')) {
         ocrText = ocrText.replace('```\n',"").replace("```","");
     }
     return ocrText;
+}
+
+function showMessage(messageText)
+{
+    var container = document.createElement("div");
+    container.className = `alert alert-warning alert-dismissible fade show`;
+    container.setAttribute("role","alert");
+    container.style="margin-top:20px;";
+    container.innerHTML = `${messageText}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
+    logs.appendChild(container);
 }
 
 async function analyzeScreen(ocrText, previousContext, apiKey) {
@@ -126,12 +141,12 @@ async function analyzeScreen(ocrText, previousContext, apiKey) {
     };
     if(model.indexOf("o1")>=0){
         messageContent[messageContent.length]  = { type: "text", text: "Description: "+ocrText };
-        messageContent[messageContent.length]  = { type: "text", text: screenAnalysisPrompt + "--\n--" +gameWalkthrough };
+        messageContent[messageContent.length]  = { type: "text", text: screenAnalysisPrompt + "--\n-- Game Walkthrough: " +gameWalkthrough };
     } else {
         messageContent[messageContent.length]  = { type: "text", text: "Description: "+ocrText };
         submitBody.max_tokens = parseInt(imageAnalysisMaxTokens);
         submitBody.messages[submitBody.messages.length] =  { role: "developer", content: screenAnalysisPrompt };
-        submitBody.messages[submitBody.messages.length] =  { role: "system", content: gameWalkthrough };
+        submitBody.messages[submitBody.messages.length] =  { role: "system", content: "Game Walkthrough: "+gameWalkthrough };
     }
     submitBody.messages[submitBody.messages.length] =  { role: "user", content: messageContent };
 
@@ -146,11 +161,23 @@ async function analyzeScreen(ocrText, previousContext, apiKey) {
     });
 
     const data = await response.json();
-    var jsonString = data.choices[0].message.content;
-    if(jsonString.includes("```json")) {
-        jsonString = jsonString.replace("```json","").replace("```","");
+    if (data.error!=null) {
+        showMessage(`Error analyzing screen. Error code: ${data.error.code} - ${data.error.message}`);
+        stopSolver();
+        return null;
     }
-    var returnjson = JSON.parse(jsonString);
+
+    var jsonString = null;
+    try {
+        jsonString = data.choices[0].message.content;
+        if(jsonString.includes("```json")) {
+            jsonString = jsonString.replace("```json","").replace("```","");
+        }
+        var returnjson = JSON.parse(jsonString);
+    } catch (error) {
+        showMessage(`Error analyzing screen. Message: ${error}`);
+        stopSolver();
+    }
     return returnjson;
 }
 
@@ -179,6 +206,9 @@ async function runSolver() {
  
     // OCR the image
     var ocrText = await ocrImage(base64,openAIApiKey);
+    if (ocrText==null){
+        return;
+    }
     image.alt = ocrText;
     var imageDescriptionContainer = document.createElement("div");
     imageDescriptionContainer.innerHTML = "<h6>OCR Text:</h6> "+ocrText;
@@ -189,6 +219,9 @@ async function runSolver() {
 
     // Send image to ChatGPT to be processed
     var nextAction = await analyzeScreen(ocrText, contextMessages, openAIApiKey);
+    if (nextAction==null){
+        return;
+    }
     var actionType = nextAction.type;
     var actionOutput = nextAction.output;
 
