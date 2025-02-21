@@ -1,0 +1,14 @@
+# Ignore Visual Studio specific files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore Copilot Indices
+CopilotIndices/
+CopilotIndices/**
+
+# Ignore File Content Index
+FileContentIndex/
+FileContentIndex/**
